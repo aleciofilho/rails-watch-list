@@ -11,6 +11,11 @@
   </head>
 
   <body>
+  <div class="navbar-lewagon">
+    <%= image_tag "logo.png", alt: "Watch List", width: 50 %>
+    <%= link_to 'My lists', lists_path %>
+    <%= link_to '+ New list', new_list_path %>
+  </div>
     <%= yield %>
   </body>
 </html>

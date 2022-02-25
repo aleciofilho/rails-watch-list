@@ -4,4 +4,4 @@
   <%= f.submit "Add Movie", class: "btn btn-primary" %>
 <% end %>
 
-<%= link_to 'Back to list', list_path(@list) %>
+<%= link_to "Back to #{@list.name}", list_path(@list) %>
