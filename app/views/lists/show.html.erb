@@ -1,16 +1,34 @@
-<h2 class="line"><%= @list.name %></h2>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80);">
+  <div class= 'btn-flat-yellow'><%= "#{@list.movies.count} movies"%></div>
+  <div class="container">
+    <h1><%= @list.name %></h1>
+  </div>
+</div>
+<div class="px-5 py-2">
+  <div class="d-flex justify-content-end">
+    <%= link_to 'add a movie', new_list_bookmark_path(@list), class: 'btn-flat-green' %>
+  </div>
 
-<ul class="list-group">
-  <% @list.bookmarks.each do |bookmark| %>
-    <li class="list-group-item">
-        <%= bookmark.movie.title %>
-        <%= bookmark.comment %>
-        <%= link_to "[Delete]",
-                    bookmark_path(bookmark),
-                    method: :delete,
-                    data: { confirm: "Are you sure?" } %>
-    </li>
-  <% end %>
-</ul>
-
-<%= link_to 'add a movie', new_list_bookmark_path(@list) %>
+  <div class="cards">
+    <% @list.bookmarks.each do |bookmark| %>
+      <div class="card">
+        <%= image_tag "#{bookmark.movie.poster_url}", class: 'card-image' %>
+        <div class="card-body">
+          <div class="d-flex">
+            <h5 class="card-title"><%= bookmark.movie.title %></h5>
+            <p class="rating"> • <%= bookmark.movie.rating.round(1) %></p>
+            <i></i>
+          </div>
+          <p><%= bookmark.movie.overview %></p>
+          <div class="d-flex justify-content-between">
+            <p class="card-text"><%= bookmark.comment%></p>
+            <%= link_to 'delete',
+                        bookmark_path(bookmark),
+                        method: :delete,
+                        data: { confirm: "Are you sure?" } %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
