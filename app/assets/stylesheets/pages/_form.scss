@@ -1,0 +1,10 @@
+.form-link {
+  text-decoration: none;
+  color: rgb(37, 37, 37);
+  font-weight: 500;
+  font-size: 12px;
+
+  &:hover {
+    color: rgb(70, 70, 70);
+  }
+}
