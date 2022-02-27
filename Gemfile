@@ -30,6 +30,9 @@ gem 'simple_form'
 # Seed with fake data
 gem 'faker', '~> 2.19.0'
 
+# part of Cloudinary setup
+gem 'dotenv-rails', groups: [:development, :test]
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
